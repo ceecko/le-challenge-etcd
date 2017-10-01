@@ -1,0 +1,29 @@
+{
+  "name": "le-challenge-etcd",
+  "version": "1.0.0",
+  "description": "An etcd-based strategy for greenlock for reading, setting and removing ACME challenges",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "gitrepo"
+  },
+  "keywords": [
+    "acme",
+    "challenge",
+    "cluster",
+    "ephemeral",
+    "etcd",
+    "http",
+    "http-01",
+    "le",
+    "le-challenge",
+    "le-challenge-",
+    "le-challenge-etcd",
+    "letsencrypt"
+  ],
+  "author": "ceecko",
+  "license": "MIT"
+}
