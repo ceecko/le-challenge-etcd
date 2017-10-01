@@ -1,3 +1,5 @@
+[![npm Badge](https://nodei.co/npm/le-challenge-etcd.png?downloads=true)](http://npmjs.org/package/le-challenge-etcd)
+
 # le-challenge-etcd
 
 An etcd-based strategy for [node-greenlock](https://git.daplie.com/Daplie/node-greenlock) for setting, retrieving, and clearing ACME challenges issued by the ACME server.
