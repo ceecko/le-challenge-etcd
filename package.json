@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "gitrepo"
+    "url": "https://github.com/ceecko/le-challenge-etcd"
   },
   "keywords": [
     "acme",
