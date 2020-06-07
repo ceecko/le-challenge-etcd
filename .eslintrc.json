@@ -9,7 +9,8 @@
         "ecmaFeatures": {
             "jsx": true
         },
-        "sourceType": "module"
+        "sourceType": "module",
+        "ecmaVersion": 2018
     },
     "rules": {
         "no-const-assign": "warn",
@@ -20,4 +21,4 @@
         "constructor-super": "warn",
         "valid-typeof": "warn"
     }
-}
+  }

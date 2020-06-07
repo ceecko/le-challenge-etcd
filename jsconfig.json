@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "allowSyntheticDefaultImports": true,
+    "module": "commonJS",
+    "checkJs": true
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
