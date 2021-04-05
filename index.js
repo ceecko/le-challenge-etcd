@@ -1,10 +1,8 @@
-const path = require('path');
-
 const myDefaults = {
-  // etcd object which provides .get(), .set() and .del() methods such as "node-etcd" module
+  // etcd3 object
   etcdObj: null,
   // etcd path prefix where challenges are stored
-  etcdPathPrefix: '/le-challenge-etcd/',
+  etcdPathPrefix: 'le-challenge-etcd/',
 };
 
 module.exports = cfg => {
@@ -16,55 +14,12 @@ module.exports = cfg => {
 
   return {
     init: async () => {},
-  
-    get: opts => {
-      return new Promise((resolve, reject) => {
-        options.etcdObj.get(
-          path.posix.join(options.etcdPathPrefix, opts.challenge.token), 
-          (err, data) => {
-            if(err) {
-              reject(err)
-              return
-            }
-
-            resolve({keyAuthorization: data.node.value})
-          }
-        )
-      })
+    get: async opts => {
+      const value = await options.etcdObj.get(`${options.etcdPathPrefix}${opts.challenge.token}`)
+      return {keyAuthorization: value}
     },
-  
-    set: opts => {
-      return new Promise((resolve, reject) => {
-        options.etcdObj.set(
-          path.posix.join(options.etcdPathPrefix, opts.challenge.token), 
-          opts.challenge.keyAuthorization,
-          err => {
-            if(err) {
-              reject(err)
-              return
-            }
-
-            resolve()
-          }
-        )
-      })
-    },
-  
-    remove: opts => {
-      return new Promise((resolve, reject) => {
-        options.etcdObj.del(
-          path.posix.join(options.etcdPathPrefix, opts.challenge.token), 
-          err => {
-            if(err) {
-              reject(err)
-              return
-            }
-
-            resolve()
-          }
-        )
-      })
-    }
+    set: opts => options.etcdObj.put(`${options.etcdPathPrefix}${opts.challenge.token}`).value(opts.challenge.keyAuthorization),
+    remove: opts => options.etcdObj.delete().key(`${options.etcdPathPrefix}${opts.challenge.token}`),
   }
 }
 
